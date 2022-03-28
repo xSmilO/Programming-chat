@@ -13,6 +13,12 @@ body {
     justify-content: center;
     background-color: #38414f;
     font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    gap: 30px;
+}
+
+h1 {
+    color: rgb(226, 226, 226);
 }
 
 .chat-container {
@@ -36,6 +42,8 @@ body {
     gap: 20px;
     overflow-y: scroll;
     border-radius: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #515d72 #363e4d;
 }
 
 .chat-container .chat-control {
@@ -54,7 +62,6 @@ body {
     border-radius: 10px;
     padding: 10px;
     flex-grow: 1;
-    border: 2px solid #38414f;
 }
 
 .chat-container .chat-control .chat-button {
@@ -91,4 +98,18 @@ body {
 .chat-container .chat-text .own-message {
     align-self: flex-end;
     background-color: #f4f4fe;
+}
+
+.chat-text::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-text::-webkit-scrollbar-thumb {
+    background-color: #515d72;
+
+    border-radius: 20px;
+}
+
+.chat-text::-webkit-scrollbar-track {
+    background: #363e4d; /* color of the tracking area */
 }

@@ -10,6 +10,7 @@ socket.on("new user", (Messages) => {
         message_box.innerText = message;
         chat_text.appendChild(message_box);
     }
+    chat_text.scrollTop = chat_text.scrollHeight;
 });
 
 chat_button.addEventListener("click", (e) => {
@@ -22,6 +23,7 @@ chat_button.addEventListener("click", (e) => {
 
     socket.emit("message send", chat_input.value);
     chat_input.value = "";
+    chat_text.scrollTop = chat_text.scrollHeight;
 });
 
 socket.on("message send", (message) => {
@@ -29,4 +31,5 @@ socket.on("message send", (message) => {
     message_box.classList.add("guest-message");
     message_box.innerText = message;
     chat_text.appendChild(message_box);
+    chat_text.scrollTop = chat_text.scrollHeight;
 });
