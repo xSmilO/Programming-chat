@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Czat</title>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="chat-text"></div>
+            <form class="chat-control">
+                <input type="text" class="chat-input" />
+                <button class="chat-button">SEND</button>
+            </form>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/app.js"></script>
+    </body>
+</html>

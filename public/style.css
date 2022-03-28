@@ -1,0 +1,94 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #38414f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat-container {
+    width: 40%;
+    height: 80vh;
+    background-color: #62718a;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.chat-container .chat-text {
+    flex-grow: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+.chat-container .chat-control {
+    display: flex;
+    max-height: 50px;
+    width: 100%;
+    align-items: center;
+    gap: 1em;
+}
+
+.chat-container .chat-control .chat-input {
+    font-size: 1.5em;
+    outline: none;
+    border: none;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    flex-grow: 1;
+    border: 2px solid #38414f;
+}
+
+.chat-container .chat-control .chat-button {
+    background-color: #38414f;
+    outline: none;
+    border: none;
+    height: 100%;
+    padding: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 1em;
+}
+
+.chat-container .chat-control .chat-button:hover {
+    background-color: #252b35;
+    cursor: pointer;
+}
+
+.chat-container .chat-text div {
+    background-color: #5777f0;
+    max-width: 40%;
+    word-wrap: break-word;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.chat-container .chat-text .guest-message {
+    align-self: flex-start;
+    color: white;
+}
+
+.chat-container .chat-text .own-message {
+    align-self: flex-end;
+    background-color: #f4f4fe;
+}
