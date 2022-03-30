@@ -31,6 +31,10 @@ chat_button.addEventListener("click", (e) => {
     socket.emit("message send", chat_input.value);
     chat_input.value = "";
     chat_text.scrollTop = chat_text.scrollHeight;
+
+    messages_arr.push(message_box);
+
+    update();
 });
 
 socket.on("message send", (message) => {
@@ -58,7 +62,8 @@ async function copyToClipBoard(e) {
     try {
         const toCopy = e.target.innerText || location.href;
         await navigator.clipboard.writeText(toCopy);
+        console.log("Text or Page URL copied");
     } catch (err) {
-        console.error(err);
+        console.error("Failed to copy: ", err);
     }
 }
