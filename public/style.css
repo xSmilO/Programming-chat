@@ -113,3 +113,14 @@ h1 {
 .chat-text::-webkit-scrollbar-track {
     background: #363e4d; /* color of the tracking area */
 }
+
+.password-input {
+    font-size: 1.5em;
+    width: 300px;
+    height: 50px;
+    border: none;
+    padding: 0.5em;
+    background-color: white;
+    outline: none;
+    border-radius: 10px;
+}

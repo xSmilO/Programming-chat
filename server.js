@@ -1,4 +1,5 @@
 require("dotenv").config();
+const pswd = "akotwica1";
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -6,11 +7,29 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require("path");
-const { measureMemory } = require("vm");
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 
 app.get("/", (req, res) => {
-    console.log(path.join(__dirname, "/public"));
+    res.sendFile(path.join(__dirname, "/public/views/index.html"));
+});
+
+app.post("/chat", (req, res) => {
+    const { password } = req.body;
+    if (password === pswd) {
+        res.redirect("/chat?logged=true");
+    } else {
+        res.redirect("/");
+    }
+});
+
+app.get("/chat", (req, res) => {
+    const { logged } = req.query;
+    if (logged != "true") {
+        res.redirect("/");
+    }
+    res.sendFile(path.join(__dirname, "/public/views/chat.html"));
 });
 
 const Messages = [];
