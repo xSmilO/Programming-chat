@@ -11,6 +11,18 @@
         <h1>CHAT-ORO</h1>
         <form action="/chat" method="post">
             <input type="password" name="password" class="password-input" />
+            <input
+                type="text"
+                name="id"
+                class="hidden-input"
+                style="display: none"
+            />
+            <button type="submit" style="display: none"></button>
         </form>
+
+        <script>
+            const id = Math.floor(Math.random() * 1000000000000000);
+            document.querySelector(".hidden-input").value = id;
+        </script>
     </body>
 </html>

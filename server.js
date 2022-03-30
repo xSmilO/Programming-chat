@@ -16,23 +16,30 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", (req, res) => {
-    const { password } = req.body;
+    const { password, id } = req.body;
     if (password === pswd) {
-        res.redirect("/chat?logged=true");
+        Users[id] = true;
+        res.redirect("/chat?id=" + id);
     } else {
         res.redirect("/");
     }
 });
 
 app.get("/chat", (req, res) => {
-    const { logged } = req.query;
-    if (logged != "true") {
+    const { id } = req.query;
+    if (!Users[id]) {
         res.redirect("/");
     }
     res.sendFile(path.join(__dirname, "/public/views/chat.html"));
 });
 
+app.use((request, response, next) => {
+    response.redirect("/");
+    next();
+});
+
 const Messages = [];
+const Users = new Map();
 
 io.on("connection", (socket) => {
     console.log("client connected");
