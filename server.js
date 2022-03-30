@@ -38,13 +38,24 @@ app.use((request, response, next) => {
     next();
 });
 
+let users_count = 0;
 const Messages = [];
 const Users = new Map();
 
 io.on("connection", (socket) => {
     console.log("client connected");
+    users_count++;
     socket.emit("new user", Messages);
-    socket.on("disconnect", () => console.log("Client disconnected"));
+
+    socket.broadcast.emit("update_count", users_count);
+    socket.emit("update_count", users_count);
+
+    socket.on("disconnect", () => {
+        users_count--;
+        console.log("Client disconnected");
+        socket.broadcast.emit("update_count", users_count);
+        socket.emit("update_count", users_count);
+    });
     socket.on("message send", (message) => {
         Messages.push(message);
         socket.broadcast.emit("message send", message);

@@ -90,6 +90,10 @@ h1 {
     border-radius: 15px;
 }
 
+.chat-container .chat-text div:hover {
+    cursor: copy;
+}
+
 .chat-container .chat-text .guest-message {
     align-self: flex-start;
     color: white;
@@ -123,4 +127,13 @@ h1 {
     background-color: white;
     outline: none;
     border-radius: 10px;
+}
+
+.user-count {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(219, 4, 4);
 }
