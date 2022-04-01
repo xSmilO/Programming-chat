@@ -39,6 +39,7 @@ h1 {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    font-size: 0.8em;
     gap: 20px;
     overflow-y: scroll;
     border-radius: 5px;
@@ -88,10 +89,12 @@ h1 {
     word-wrap: break-word;
     padding: 20px;
     border-radius: 15px;
+    transition: 0.3s max-width ease;
 }
 
 .chat-container .chat-text div:hover {
     cursor: copy;
+    max-width: 60%;
 }
 
 .chat-container .chat-text .guest-message {
