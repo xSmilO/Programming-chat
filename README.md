@@ -1,2 +1,2 @@
 # Programming-chat
-ORO na nauczycielach
+This is a online chat made for my school class to send code on lessons 😎 and avoid teachers.
